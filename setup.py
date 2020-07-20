@@ -6,7 +6,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-setup(name='envpy',
+setup(name='external-variables',
       version='0.1',
       description='A simple way to use enviroment configurations.',
       long_description=read('README.md'),
@@ -15,4 +15,9 @@ setup(name='envpy',
       author_email='dsmello.9@gmail.com',
       license='GPL',
       packages=['envpy'],
-      zip_safe=False)
+      zip_safe=False,
+      classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ])
