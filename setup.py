@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup,find_packages
 
 
 def read(fname):
@@ -10,11 +10,12 @@ setup(name='external-variables',
       version='0.1',
       description='A simple way to use enviroment configurations.',
       long_description=read('README.md'),
+      long_description_content_type='text/markdown',
       url='https://github.com/Combofoods/pyenv',
       author='Davi Mello',
       author_email='dsmello.9@gmail.com',
       license='GPL',
-      packages=['envpy'],
+      packages=find_packages(),
       zip_safe=False,
       classifiers=[
         "Programming Language :: Python :: 3",

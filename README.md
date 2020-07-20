@@ -1,4 +1,4 @@
-bitbucket-python is an API wrapper for Bitbucket written in Python
+# A simple python module to get variables from host or file
 
 ## Installing
 ```

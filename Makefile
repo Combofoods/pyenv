@@ -16,3 +16,15 @@ pytest: venv
 setup:
 	@echo "Creating a development enviroment"
 	python -m venv env && $(FOLDER)/pip install -r ./requirements.txt && $(FOLDER)/pip install -e . && $(FOLDER)/pip install --upgrade setuptools wheel twine
+
+build:
+	@echo "Build the module"
+	$(FOLDER)/python setup.py sdist bdist_wheel
+
+publish_test:
+	@echo "Sending the module to PIP"
+	$(FOLDER)/python -m twine upload --config-file ~/.test.pypirc --repository testpypi dist/*
+
+publish_prd:
+	@echo "Sending the module to PIP"
+	$(FOLDER)/python -m twine upload --config-file ~/.pypirc --repository pypi dist/*
