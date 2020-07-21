@@ -7,7 +7,7 @@ def read(fname):
 
 
 setup(name='external-variables',
-      version='0.1',
+      version='0.2',
       description='A simple way to use enviroment configurations.',
       long_description=read('README.md'),
       long_description_content_type='text/markdown',

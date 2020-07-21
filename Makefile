@@ -15,7 +15,7 @@ pytest: venv
 
 setup:
 	@echo "Creating a development enviroment"
-	python -m venv env && $(FOLDER)/pip install -r ./requirements.txt && $(FOLDER)/pip install -e . && $(FOLDER)/pip install --upgrade setuptools wheel twine
+	python -m venv env && $(FOLDER)/pip install -r ./requirements.txt && $(FOLDER)/pip install -e . && $(FOLDER)/pip install --upgrade setuptools wheel twine pytest
 
 build:
 	@echo "Build the module"

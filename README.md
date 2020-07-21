@@ -1,8 +1,8 @@
-# A simple python module to get variables from host or file
+## A simple python module to help to handle with ENV variables and files with paramters ( .env, .config, .properties ...) 
 
 ## Installing
 ```
-pip install bitbucket-python
+pip install external-variables
 ```
 
 ## Usage

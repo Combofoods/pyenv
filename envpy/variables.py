@@ -84,8 +84,6 @@ class Var(Variables):
     variables_OS : dict = None
 
     def __load_variables__(self):
-        # with open(self.file,'r') as data:
-        #     super().set_variables(__text_parser__(data.read()))
         pass
 
 
