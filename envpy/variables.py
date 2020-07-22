@@ -1,7 +1,9 @@
 import os, abc, re
 import warnings
+from typing import TypeVar, Generic
 from envpy.error import NotFoundEnviromentVariableError
 
+T = TypeVar('T')
 
 def cleaner(s: str):
     return re.sub('\'|\"' ,'' ,s)
@@ -36,11 +38,25 @@ class Variables(object, metaclass=abc.ABCMeta):
     def printenv(self, preat:bool=True) -> None:
         __printenv__(self.__variables, preat)
 
-    def get_variable(self, variable) -> dict:
+
+    def get_variable(self, variable, conversionType:T=None, defaultValue:str=None) -> T:
+        """
+        This method exist to help you to check if the desired variable exist if not will return defaultValue.
+        Or you can use to get variable.
+        TODO.: In the future we will made a type discovery to convert the information from input
+        """
         try:
-            return {variable: self.__variables[variable]}
+            var = self.__variables[variable]
         except KeyError as _:
-            raise NotFoundEnviromentVariableError(self.__variables[variable])
+            if defaultValue:
+                return defaultValue
+            else:
+                raise NotFoundEnviromentVariableError(variable)
+        
+        if conversionType:
+            return conversionType(var)
+        else:
+            return var
 
 
     def get_all_variables(self, raw: bool = False) -> dict:
@@ -53,6 +69,8 @@ class Variables(object, metaclass=abc.ABCMeta):
 
     def set_variables(self, variables:dict) -> None:
         self.__variables = variables
+        
+        
 
 
 class OSVariables(Variables):
